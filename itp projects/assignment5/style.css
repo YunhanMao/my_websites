@@ -1,0 +1,30 @@
+.img-container {
+	position: relative;
+}
+.myTitle{
+	font-family: 'Akaya Telivigala', cursive;
+}
+/* specially created class just for fonts changes */
+.movie-info{
+	font-family: 'Merriweather', serif;
+}
+.cover {
+	position: absolute;
+	top:0px;
+	bottom:0px;
+	left :0px;
+	right:0px;
+	text-align: center;
+	font-size: 12px;
+	display: none;
+	/* set opacity so the back content is viewable */
+	opacity: 0.8;
+	background-color:black;
+	/* textcolor */
+	color: white;
+}
+
+.img-container:hover .cover {
+	padding-top: 10%;
+	display: block;
+}

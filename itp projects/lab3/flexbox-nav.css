@@ -1,0 +1,46 @@
+html, body {
+    padding: auto;
+    margin: auto;
+    font-family: 'Playfair Display', serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    font-size: 18pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(50, 152, 248);
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: block;
+    width: 15%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.container a:hover {
+    color: white;
+    background-color: rgb(36, 4, 243);
+    opacity: 0.6;
+}
+
+@media (max-width: 991px) {
+    .container a {
+        width: 50%;
+    }
+}
+@media (max-width: 767px) {
+    .container a {
+        width: 100%;
+    }
+}

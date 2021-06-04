@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Register | SCList</title>
+
+	<link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <script src="../bootstrap/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">SCList</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link " aria-current="page" href="index.html">Home</a>
+              <a class="nav-link " href="login.html">Log in</a>
+              <a class="nav-link active" href="register.html">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+	  
+	<div class="wrapper">
+		<div class="page-container" style="background-image: url('../images/background_login.jpg');">
+			<div class="page-wrapper">
+				<form class="submit-form validate-form">
+					<span class="form-title">Sign up for SCList</span>
+					<p class="dp">You are on your way to an efficient life-style!</p>
+
+					<div class="input-wrapper validate-input" data-validate="Please enter your username">
+						<span class="myinput">Username</span>
+						<input class="input-info" type="text" name="username" placeholder="Please create your username" autocomplete="off">
+					</div>
+
+					<div class="input-wrapper validate-input" data-validate="Please enter your password">
+						<span class="myinput">Password</span>
+						<input class="input-info" type="password" name="password" placeholder="Please create your password">
+					</div>
+
+					<div class="input-wrapper validate-input" data-validate="Please enter your password">
+						<span class="myinput">Password Confirmation</span>
+						<input class="input-info" type="password" name="recheck_password" placeholder="Reconfirm your password here">
+					</div>
+
+					<div class="form-button-container">
+						<div class="form-button-wrapper">
+							<div class="form-button-animation"></div>
+							<button class="form-button">I am ready to go!</button>
+						</div>
+					</div>
+
+                    <div class="transition flex-col-c">
+						<a href="login.html" class="txt2">Already have an account? Log in here!</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer>
+        © 2021 SCList
+    </footer>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+</html>

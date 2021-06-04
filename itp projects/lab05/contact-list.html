@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact List using Objects</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row mt-4">
+			<h1 class="col-12">Contacts</h1>
+			<h2 class="col-12 mt-4">New Contact</h2>
+			<div class="col-12 mt-4">
+				<form id="contact-form">
+					<div class="form-row">
+
+						<div class="col-12 mt-2 col-sm-3 mt-sm-0">
+							<label for="fname" class="sr-only">First Name:</label>
+							<input type="text" class="form-control" id="fname" placeholder="First Name">
+						</div> <!-- .col -->
+
+						<div class="col-12 mt-2 col-sm-3 mt-sm-0">
+							<label for="lname" class="sr-only">Last Name:</label>
+							<input type="text" class="form-control" id="lname" placeholder="Last Name">
+						</div> <!-- .col -->
+
+						<div class="col-12 mt-2 col-sm-3 mt-sm-0">
+							<label for="email" class="sr-only">Email:</label>
+							<input type="text" class="form-control" id="email" placeholder="Email">
+						</div> <!-- .col -->
+
+						<div class="col-12 mt-2 col-sm-auto mt-sm-0">
+							<button role="button" type="submit" class="btn btn-primary">Add</button>
+						</div> <!-- .col -->
+
+					</div> <!-- .form-row -->
+				</form>
+			</div> <!-- .col -->
+		</div> <!-- .row -->
+
+		<div class="row">
+			<h2 class="col-12 mt-4">List:</h2>
+		</div> <!-- .row -->
+
+		<div class="row">
+			<div class="col-12 mt-3">
+				<button id="show-three-btn" class="btn btn-outline-primary mb-3">Show First Three Contacts</button>
+				<button id="show-all-btn" class="btn btn-outline-primary mb-3">Show All Contacts</button>
+				<button id="delete-btn" class="btn btn-outline-danger mb-3">Delete All</button>
+			</div> <!-- .col -->
+		</div><!-- .row -->
+
+		<div class="row">
+			<div class="col-12 mt-3">
+				<ul class="list-group" id="contact-list">
+					<!-- Below is the template that all contacts should follow -->
+					<!-- <li class="list-group-item">Trojan, Tommy (ttrojan@usc.edu)</li> -->
+				</ul>
+			</div> <!-- .col -->
+
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+
+	<script>
+		
+		// Use this array to keep track of contacts
+		//A contacts array is created for you.
+		let contacts = [];
+		//You will be storing any newly created contacts as an object and storing it in this array
+		function Contact(firstName, lastName, email) {
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.email = email;
+			this.getContact = function() {
+				return this.lastName + ", " + this.firstName + " (" + this.email + ")";
+			}
+		}
+		//function for display data
+		function ShowData(arr,length){
+			for (let i = 0; i < length; i++) {
+				//same formatting as display all
+				let lElement = document.createElement("li");
+				lElement.innerHTML = arr[i].getContact();
+				lElement.classList.add("list-group-item");
+				document.querySelector("#contact-list").appendChild(lElement);
+			}
+		}
+		//Create an event handler for form submission.
+		document.querySelector("#contact-form").onsubmit = function(event) {
+			event.preventDefault();
+			//get rid of the spaces
+			let firstName = document.querySelector("#fname").value.trim();
+			let lastName = document.querySelector("#lname").value.trim();
+			let email = document.querySelector("#email").value.trim();
+			//Check that all input fields are filled out.
+			/*If all inputs are filled out, save the information into an object. The object must have these properties:
+firstName: property that stores user input for First Name.
+lastName: property that stores user input for Last Name.
+email: property that stores user input for Email.*/
+			if (firstName.length != 0 && lastName.length != 0 && email.length != 0) {
+				let newContact = new Contact(firstName, lastName, email);
+				contacts.push(newContact);
+				document.querySelector("#fname").value = "";
+				document.querySelector("#lname").value = "";
+				document.querySelector("#email").value = "";				
+			}
+		}
+
+		//Create an event handler for Show All Contacts
+		document.querySelector("#show-all-btn").onclick = function() {
+			document.querySelector("#contact-list").innerHTML = "";
+			//Run through the contacts array and show all contacts.
+			ShowData(contacts,contacts.length);
+		}
+
+		//Create an event handler for Show First Three Contacts
+		document.querySelector("#show-three-btn").onclick = function() {
+			document.querySelector("#contact-list").innerHTML = "";
+			let num=0; 
+			//check if less than 3
+			if(contacts.length < 3){
+				num=contacts.length;
+			}
+			else{
+				num=3;
+			}
+			ShowData(contacts,num);
+		}
+
+		//Create an event handler for Delete All.
+		document.querySelector("#delete-btn").onclick = function() {
+			//Remove all objects from the contacts array.
+			contacts = [];
+			//Clear everything from <ul class="list-group" id="contact-list"> so that no contacts are displayed.
+			document.querySelector("#contact-list").innerHTML = "";
+		}
+	</script>
+
+</body>
+</html>

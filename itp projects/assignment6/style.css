@@ -1,0 +1,63 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: lightgoldenrodyellow
+}
+
+#weather-container {
+	background-color: pink;
+	text-align: center;
+	width: 600px;
+	margin: auto;
+	padding: 5px;
+	border: 3px solid #000;
+}
+
+#city-list:focus{
+	outline: none;
+}
+
+#list-container {
+	width: 500px;
+	margin: 40px auto;
+	overflow: hidden;
+	box-shadow: 1px 2px 12px lightblue;
+    border: 3px solid #000;
+	background-color: lightblue;
+}
+
+/* to do list title */
+#list-container h1{ 
+	background-color:orange;
+	padding-left: 15px;
+	font-size:40px;
+}
+
+#plus{
+	float: right;
+	margin-right: 15px;
+}
+
+#input-box{
+	width: 100%;
+	border: none;
+	padding: 10px;
+	margin: 0;
+	font-size: 20px;
+}
+
+#input-box:focus {
+	outline: none;
+}
+
+#to-do-items{
+	padding: 0;
+}
+
+#to-do-items li{
+	padding: 15px;
+	list-style-type: none;
+}
+
+#to-do-items li:hover {
+	background-color: lightgreen;
+}

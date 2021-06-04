@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<title>Assignment 5: Movie DB API Search</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+</head>
+
+ <body>
+	<div class="container justify-content-center">
+		<div class="row">
+			<h1 class="col-12 mt-4 myTitle">Cinema News Vendor</h1>
+		</div>
+
+		<div class="row">
+			<form class="col-12" id="search-form">
+				<div class="form-row">
+					<div class="col-12 col-sm-6 col-lg-4 mt-4">
+						<label for="search-id" class="sr-only">Search:</label>
+						<input type="text" class="form-control" id="search-id" placeholder="Search...">
+					</div>
+
+					<div class="col-12 col-sm-auto mt-4">
+						<button type="submit" class="btn btn-primary btn-block">Search</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="row">
+			<div class="col-12 mt-4">
+				Showing <span id="result-cnt" class="font-weight-bold">0</span> of <span id="total-cnt" class="font-weight-bold">0</span> result(s).
+			</div>
+		</div>
+
+
+		<!-- dummy content to set initial positions for js -->
+		<div id="movie-section" class="row col-12">
+			<div class="col-6 col-md-4 col-lg-3 my-2">
+				<!-- first movie section -->
+			</div>
+			<div class="col-6 col-md-4 col-lg-3 my-2">
+				<!-- second movie section -->
+			</div>
+			<div class="col-6 col-md-4 col-lg-3 my-2">
+				<!-- third movie section -->
+			</div>
+			<div class="col-6 col-md-4 col-lg-3 my-2">
+				<!-- forth movie section -->
+			</div>
+		</div>
+	</div>
+	<script src="main.js"></script> 
+</html>

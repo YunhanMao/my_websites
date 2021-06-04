@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>T-shirt Customizer</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div class="header">
+		<h1>T-shirt Maker</h1>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 col-md-5 section py-3 tshirt">
+				<img src="https://purepng.com/public/uploads/large/purepng.com-white-t-shirtt-shirtfabrict-shapegramnetsmenswhite-14215264292423zp8k.png" />
+				<!-- This is the element that appears on top of the t-shirt -->
+				<div id="tshirt-preview"></div>
+			</div>
+			<div class="col-12 col-md-4 section py-3 customize">
+				<h2>Customize T-shirt</h2>
+				<form id="tshirt-form">
+					<div class="form-group">
+					    <label for="tshirt-text">Text to put on T-shirt:</label>
+					    <input type="text" class="form-control" id="tshirt-text" placeholder="Enter text" autocomplete="off">
+					    <small id="tshirt-text-help" class="form-text">max 20 characters</small>
+					</div>
+					<div class="form-group">
+						<label for="tshirt-font">Choose font:</label>
+						<select id="tshirt-font" class="form-control">
+							<option value="Arial">Arial</option>
+							<option value="Times New Roman">Times New Roman</option>
+							<option value="Verdana">Verdana</option>
+							<option value="Monospace">Monospace</option>
+						</select>
+					</div>
+					<div class="form-group">
+					    <label for="tshirt-font-size">Choose font size:</label>
+						<input type="range" list="tickmarks" class="form-control-range" id="tshirt-font-size" min="12" max="36" step="3">
+						<datalist id="tickmarks">
+							<option value="12" label="12px"></option>
+							<option value="15"></option>
+							<option value="18" label="18px"></option>
+							<option value="21"></option>
+							<option value="24" label="24px"></option>
+							<option value="27"></option>
+							<option value="30" label="30px"></option>
+							<option value="33"></option>
+							<option value="36" label="36px"></option>
+						</datalist>
+					</div>
+					<div class="form-group">
+						<label>Choose text color:</label>
+						<ul class="tshirt-colors">
+							<li class="tshirt-color selected" data-color="black"></li>
+							<li class="tshirt-color" data-color="blue"></li>
+							<li class="tshirt-color" data-color="green"></li>
+							<li class="tshirt-color" data-color="red"></li>
+						</ul>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Add to Cart</button>
+						<button type="button" class="btn btn-danger" id="btn-remove">Remove from Cart</button>
+						<div class="error-message"></div>
+					</div>
+				</form>
+			</div>
+			<div class="col-12 col-md-3 d-flex section">
+				<div class="cart">
+					<h4>Shopping Cart</h4>
+					<div id="cart-message">
+						Cart is empty
+					</div>
+					<div class="cart-item hide">
+						<h5>Custom Shirt</h5>
+						<span id="qty">0</span> x $20.00
+					</div>
+
+					<hr/>
+
+					<div class="cart-pricing">
+						<span>Subtotal:</span>
+						<span id="subtotal">$0.00</span>
+					</div>
+					<div class="cart-pricing">
+						<span>Tax:</span>
+						<span id="tax">$0.00</span>
+					</div>
+					<div class="cart-pricing">
+						<strong>Total:</strong>
+						<span id="total">$0.00</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+        //Created by Yunhan Mao at 2021/2/14
+		document.querySelector("#tshirt-text").oninput = function() {
+			//As user types text into the text field
+			let userInput = document.querySelector("#tshirt-text").value;
+			//display the text in <div id="tshirt-preview">
+			document.querySelector("#tshirt-preview").innerHTML = userInput;
+			if (userInput.length > 20){
+				// If user types in more than 20 characters:
+				//Change the message “max 20 characters” text color to red and add a CSS class .is-invalid to the text input. .is-invalid is a Bootstrap CSS class that automatically gives a red border around the input.
+				document.querySelector("#tshirt-text-help").style.color = "red";
+				document.querySelector("#tshirt-text").classList.add("is-invalid");
+			}
+			else{
+				// if not, turn back
+				document.querySelector("#tshirt-text-help").style.color = "black";
+			if (document.querySelector("#tshirt-text").classList.contains("is-invalid")){
+				document.querySelector("#tshirt-text").classList.remove("is-invalid");
+			}
+			}
+		}
+
+		//When user selects a different font in the dropdown, change the t-shirt font to that font.k
+		document.querySelector("#tshirt-font").onchange = function() {
+			let userInput = document.querySelector("#tshirt-font").value;
+			document.querySelector("#tshirt-preview").style.fontFamily = userInput;
+		}
+
+		//When user changes the font size slider, change the t-shirt font size to that size.
+		document.querySelector("#tshirt-font-size").onchange = function() {
+			let userInput = document.querySelector("#tshirt-font-size").value;
+			userInput += "px"; //add the suffix
+			document.querySelector("#tshirt-preview").style.fontSize = userInput;
+		}
+		
+		//When user clicks on one of the text color boxes, 
+		let colors = document.querySelectorAll(".tshirt-color");
+		for (let a = 0; a < colors.length; a++) {
+			colors[a].onclick = function() {
+				for (let b = 0; b < colors.length; b++) { 
+					//clear the array to make sure nothing selected
+					if (colors[b].classList.contains("selected")) {
+						colors[b].classList.remove("selected");
+					}
+				}
+				//change the t-shirt text color to that color AND add a gray border around the color box that was clicked on (add CSS class .selected to it).
+				colors[a].classList.add("selected");// from the style.css, the border will be added automatically with the addition of selected class
+				document.querySelector("#tshirt-preview").style.color = document.querySelector(".selected").dataset.color;
+			}
+		}
+
+		document.querySelector("#tshirt-form").onsubmit = function(event) {
+			event.preventDefault();
+			let userInput = document.querySelector("#tshirt-text").value;
+			if (userInput.length > 20){//Validate that “Text to put on T-shirt” input field is not longer than 20 characters.
+				document.querySelector(".error-message").innerHTML = "Text cannot be longer than 20 characters";				
+			}
+			else if (userInput.length == 0){//Validate that “Text to put on T-shirt” input field is not empty
+			if (!document.querySelector("#tshirt-text").classList.contains("is-invalid")){
+					document.querySelector("#tshirt-text").classList.add("is-invalid");
+				}
+				document.querySelector(".error-message").innerHTML = "Text is required";
+			}
+			else{
+				//Shopping cart: hide the “Cart is empty” message if above validation rules are met.
+				document.querySelector('#cart-message').classList.add('hide')
+				document.querySelector(".cart-item").classList.remove("hide");
+				//clear the error message, if any
+				document.querySelector(".error-message").innerHTML = " ";	
+				//Update the quantity by one every time user clicks “Add to Cart.”
+				let quantity = parseInt(document.querySelector("#qty").innerHTML) + 1;
+				let subtotal = quantity * 20; //Each shirt base price is $20.00
+				let tax = subtotal * 9.5 / 100; //Tax rate is 9.5%
+				let total = subtotal + tax; //total=notaxtotal+tax;
+
+				//Shopping cart: Update the subtotal, tax, and total fields accordingly.
+				document.querySelector("#qty").innerHTML = quantity.toString();
+				document.querySelector("#subtotal").innerHTML = "$" + subtotal.toFixed(2).toString();
+				document.querySelector("#tax").innerHTML = "$" + tax.toFixed(2).toString();
+				document.querySelector("#total").innerHTML = "$" + total.toFixed(2).toString();
+			}
+		}
+
+		document.querySelector("#btn-remove").onclick = function() {
+			if (document.querySelector('#cart-message').classList.contains("hide")){//Shopping cart: show the “Cart is empty” message. 
+				document.querySelector('#cart-message').classList.remove("hide")
+			} 
+			if (!document.querySelector('.cart-item').classList.contains("hide")){//Shopping cart: hide the shirt information
+				document.querySelector('.cart-item').classList.add("hide")
+			}
+			if(document.querySelector("#qty").textContent=="0"){ //handle case where nothing to remove
+				document.querySelector(".error-message").innerHTML = "There is nothing to remove!!!";
+			}
+			document.querySelector("#qty").innerHTML = "0"; //Shopping cart: Reset the Subtotal, Tax, and Total to 0 (zero).
+			document.querySelector("#total").innerHTML = "$0.00";
+			document.querySelector("#subtotal").innerHTML = "$0.00";
+			document.querySelector("#tax").innerHTML = "$0.00";
+		}
+	
+		</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.weather-info
+{
+    border: 3px solid #000;
+    width: 1000px;
+    margin: auto;
+    margin-bottom: 60px;
+}
+
+.container
+{
+    border: 3px solid #000;
+    width: 550px;
+    margin: auto;
+}

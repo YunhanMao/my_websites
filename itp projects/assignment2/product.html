@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,300&display=swap" rel="stylesheet">
+	<title>Gary's store</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+		#header {
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			color: white;
+			background-color: black;
+			font-family: 'Fraunces', serif;
+		}
+		footer{
+			background-color: black;
+			color:white;
+			text-align: center;
+		}
+	#product_name
+		{
+			font-family: 'Fraunces', serif;
+			width: 100%;
+			float: left;
+			box-sizing: border-box;
+			font-size: 15pt;
+			font-weight: bold;
+			padding-left:15px;
+			margin-top: 20px;
+		}
+		#wrapper {
+			float: left;
+			width: 100%;
+			box-sizing: border-box;
+			padding: 10px;
+		}
+
+		#wrapper img {
+			width: 98%;
+			margin-left: 1%;
+			margin-right: 1%;
+		}
+		#info p{
+			margin:10px 0px;
+			
+		}
+		#info p em{
+			font-size:20px;
+			color:black;
+		}
+		#info {
+			float: left;
+			width: 100%;
+			box-sizing: border-box;
+			padding: 10px;
+			
+		}
+		#top{
+			border-top:1px solid #999;
+			padding:10px 0px;
+			border-bottom:1px solid #999;
+		}
+		.title1{
+			font-size:30px;
+			color:red;
+			font-family: 'Fraunces', serif;
+		}
+		.text{
+			margin-left:30px;
+		}
+		.highlights{
+			height:5px;
+			width:5px;
+			border-radius:25px;
+			background: white;
+			margin-right:10px;
+			float:left;
+			margin-top:8px;
+		}
+		#info p a {
+			margin:0px 20px;
+			color:#03a9f4;
+		}
+		#info img {
+			width: 98%;
+			margin-left: 1%;
+			margin-right: 1%;
+		}
+
+		#wrapper #promo {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			background-color: lightgreen;
+			border: 1px solid #188C1F;
+			width: 80%;
+			height: 50px;
+			line-height: 50px;
+			margin-top: 30px;
+			font-size: 10pt;
+			box-sizing: border-box;
+		}
+
+		.clearfloat {
+			clear: both;
+		}
+
+		#related {
+			font-size: 15pt;
+			padding: 10px;
+			margin-top: 30px;
+			margin-right: 30px;
+			font-family: 'Fraunces', serif
+		}
+
+		.item {
+			position: relative;
+			overflow: hidden;
+			margin-bottom: 30px;
+			box-sizing: border-box;
+			border: 1px solid black;
+			float: left;
+			width: 70%;
+			height: 0;
+			padding-bottom: 50%;
+			margin-left: 15%;
+			margin-right: 15%;
+		}
+
+		#desktop img {
+			width: 100%;
+			height: auto;
+			position: absolute;
+			top: -70px;
+		}
+
+		#mouse img {
+			width: 100%;
+			height: auto;
+			position: absolute;
+			top: -50px;
+		}
+
+
+		#keyboard img {
+			width: 100%;
+			height: auto;
+			position: absolute;
+			top: -10px;
+		}
+
+		#headset img {
+			width: 100%;
+			height: auto;
+			position: absolute;
+			top: -70px;
+		}
+
+		.hov_content {
+			position: absolute;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			text-align: center;
+			font-family: 'Fraunces', serif;
+			font-size: 25pt;
+			display: none;
+			background-color: rgba(0, 0, 0, 0.4);
+			color: white;
+		}
+		.item:hover .hov_content {
+			display: block;
+			padding-top: 20%;
+		}
+		#about{
+			font-family: 'Fraunces', serif;
+		}
+		@media(min-width: 768px) {
+			#product_name {
+				text-align: left;
+				float: right;
+				width: 50%;
+			}
+			#wrapper {
+				margin-top: 50px;
+			}
+				#wrapper, #info {
+				width: 50%;
+			}
+
+			#desktop {
+				width: 35%;
+				margin-left: 10%;
+				margin-right: 5%;
+			} 
+
+			#keyboard {
+				width: 35%;
+				margin-left: 10%;
+				margin-right: 5%;
+			}
+			#desktop img {
+				top: -50px;
+			}
+
+			#keyboard img {
+				height: 100%;
+				width: auto;
+				left: -50px;
+			}
+			#mouse {
+				width: 35%;
+				margin-left: 5%;
+				margin-right: 10%;
+			}
+
+			#headset {
+				width: 35%;
+				margin-left: 5%;
+				margin-right: 10%;
+			}
+			#mouse img {
+				height: 100%;
+				width: auto;
+				top: 0px;
+				left: -60px;
+			}
+			#headset img {
+				height: 100%;
+				width: auto;
+				top: 5px;
+				left: -30px;
+			}
+			.item:hover .hov_content {
+				padding-top: 60%;
+			}			
+		}
+		@media(min-width: 992px) {
+			#desktop {
+				width: 20%;
+				margin-left: 4%;
+				margin-right: 4%;
+			}
+			#info {
+				max-width: 1000px;
+			}
+			#headset {
+				width: 20%;
+				margin-right: 4%;
+				margin-left: 0%;
+			}
+			#keyboard {
+				width: 20%;
+				margin-right: 4%;
+				margin-left: 0%;
+			}
+			#mouse {
+				width: 20%;
+				margin-right: 4%;
+				margin-left: 0%;
+			}
+			.item {
+				padding-bottom: 20%;
+			}
+			#mouse img {
+				left: 0px;
+			}
+			#keyboard img {
+				width: 100%;
+				height: auto;
+				left: 0px;
+			}
+			#headset img {
+				left: 10px;
+			}
+			
+			.hov_content {
+				font-size: 20pt;
+			}
+			.item:hover .hov_content {
+				padding-top: 45%;
+			}
+		}
+</style>
+</head>
+
+<body>
+	<div id="header">
+		<h1>Gary's store</h1>
+	</div>
+
+<div id="product_name">
+    <h2>SAMSUNG Curved Monitor</h2>
+</div>
+
+	<div class=".clearfloat"></div>
+
+	<div>
+		<div id="wrapper">
+			<img src="images/monitor.jpg" alt="monitor">
+			<div id="promo">
+				Use promo code GARYM to get <strong>100%</strong> off!
+			</div>
+		</div>
+	
+
+		<div id="info">
+			<p><em>Price:$999.99(taxes included)</em></p>
+			<p>★★★★★ from 3,671 ratings</p>
+			<p>for <span>"Samsung Curved Monitor"</span></p>
+			<div id="top">
+				<p><span class="title1">Tech Specs:</span>
+				</p>
+				<p><strong>Screen Size </strong><span class="text">23.5 Inches </span></p>
+				<p><strong>Resolution</strong><span class="text"> FHD 1080i </span></p>
+				<p><strong>Display Technology</strong><span class="text">LCD </span></p>
+				<p><strong>Brand</strong><span class="text"> SAMSUNG </span></p>
+				<p><strong>Series </strong><span class="text">LC24F396FHNXZA </span></p>
+				<h2 id="about">About this item:</h2>
+			</div>
+<ul>
+				<li><span class="highlights"></span>1800R curvature of the screen provides a truly immersive viewing experience</li>
+				<li><span class="highlights"></span>A stylish design featuring a Black body metallic finish and sleek curves</li>
+				<li><span class="highlights"></span>4 (GTG) ms response time</li>
+				<li><span class="highlights"></span>Amd Free Sync minimizes input latency and dramatically reduces image tearing and stutter during gaming</li>
+				<li><span class="highlights"></span>Eye saver mode optimizes your viewing comfort by reducing blue light emissions and flickers at the touch of a button</li>
+				<li><span class="highlights"></span>The excellent 3000: 1 contrast ratio delivers deep blacks and bright whites</li>
+				<li><span class="highlights"></span>display technology: LCD</li>
+				<li><span class="highlights"></span>connectivity technology: HDMI</li>
+			</ul>
+			</div>
+
+		<div class="clearfloat"></div>
+	</div>
+
+	<div>
+		<div id="related">
+			<h2>Related Products</h2>
+			</div>
+		<div id="desktop" class="item">
+			<img src="images/desktop.jpg" alt="Gaming Desktop">
+			<div class="hov_content"> Gaming Desktop</div>
+		</div>
+
+		<div id="mouse" class="item">
+			<img src="images/mouse.jpg" alt="Gaming Mouse">
+			<div class="hov_content">Gaming Mouse</div>
+			</div>
+
+		<div id="keyboard" class="item">
+			<img src="images/keyboard.jpg" alt="Gaming Keyboard">
+			<div class="hov_content">Gaming Keyboard</div>            
+		</div>             
+  
+		<div id="headset" class="item">
+			<img src="images/headset.jpg" alt="Gaming Headset">
+			<div class="hov_content">Gaming Headset</div>				
+		</div>
+		<div class="clearfloat"></div>
+	</div>
+	<footer>Copyright@2021 Made by Yunhan Mao</footer>
+	<footer>Based on:
+	https://www.amazon.com/Samsung-23-5-Inch-LED-Lit-Monitor-LC24F396FHNXZA/dp/B079K3MXWF/ref=sr_1_14?dchild=1&keywords=gaming+monitor&qid=1612021368&sr=8-14</footer>
+	<footer>(P.S. I was kidding about that 100% OFF.) </footer>
+</body>
+</html>
